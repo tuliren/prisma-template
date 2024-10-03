@@ -12,15 +12,21 @@
     "db:push": "prisma db push --skip-generate",
     "db:rollback": "bin/rollback-migration.sh",
     "db:status": "prisma migrate status",
-    "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,json}\"",
+    "format:write": "prettier --write \"**/*.{ts,tsx,js,json}\" --log-level=warn",
+    "postinstall": "husky",
     "pgcli": "dotenv -e .env.example -- sh -c 'pgcli $DATABASE_URL'"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": "prettier --write"
   },
   "dependencies": {
     "@prisma/client": "5.20.0"
   },
   "devDependencies": {
     "dotenv-cli": "^7.4.2",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "3.3.3",
     "prettier-plugin-packagejson": "^2.5.2",
     "prisma": "5.20.0"
