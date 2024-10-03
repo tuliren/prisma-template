@@ -3,6 +3,7 @@
 This is a Prisma template with better migration rollback support.
 
 Native Prisma migration system has limited rollback functionality:
+
 - A separate command is required to create a down migration.
 - It can only roll back a migration when the migration fails.
 
