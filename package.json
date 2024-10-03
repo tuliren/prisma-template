@@ -12,6 +12,8 @@
     "db:push": "prisma db push --skip-generate",
     "db:rollback": "bin/rollback-migration.sh",
     "db:status": "prisma migrate status",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
     "pgcli": "dotenv -e .env.example -- sh -c 'pgcli $DATABASE_URL'"
   },
   "dependencies": {
@@ -19,6 +21,8 @@
   },
   "devDependencies": {
     "dotenv-cli": "^7.4.2",
+    "prettier": "3.3.3",
+    "prettier-plugin-packagejson": "^2.5.2",
     "prisma": "5.20.0"
   },
   "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
