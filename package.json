@@ -1,0 +1,25 @@
+{
+  "name": "prisma-template",
+  "version": "0.0.1",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "db:create-migration": "bin/create-migration.sh",
+    "db:deploy": "prisma migrate status; prisma migrate deploy",
+    "db:generate": "prisma generate --no-hints",
+    "db:push": "prisma db push --skip-generate",
+    "db:rollback": "bin/rollback-migration.sh",
+    "db:status": "prisma migrate status",
+    "pgcli": "dotenv -e .env.example -- sh -c 'pgcli $DATABASE_URL'"
+  },
+  "dependencies": {
+    "@prisma/client": "5.20.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.4.2",
+    "prisma": "5.20.0"
+  },
+  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+}
