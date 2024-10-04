@@ -24,8 +24,7 @@ This template aims to provide a similar experience for Prisma as follows.
 - Run `yarn db:rollback` to roll back the last migration.
   - The `down.sql` file is executed to revert the schema change in the database.
   - The record in `_prisma_migrations` table for the reverted migration is deleted.
-- Manually delete the `<timestamp>-<migration-name>` directory to delete the migration files completely.
-  - A script or flag will be added for this step in the future. Currently it is a manual operation.
+  - The `<timestamp>-<migration-name>` directory is deleted.
 - Change the `schema.prisma` file, and create a new migration.
 
 ## LICENSE

@@ -10,6 +10,21 @@ to_lowercase() {
     echo "$1" | tr '[:upper:]' '[:lower:]'
 }
 
+remove_directory=false
+
+while getopts ":d" opt; do
+  case ${opt} in
+    d )
+      remove_directory=true
+      ;;
+    \? )
+      echo "Invalid option: $OPTARG" 1>&2
+      exit 1
+      ;;
+  esac
+done
+shift $((OPTIND -1))
+
 latest_migration=$(find_latest_migration)
 
 if [ -z "$latest_migration" ]; then
@@ -47,6 +62,17 @@ SQL
 
 if [ $? -eq 0 ]; then
     echo "Down migration completed successfully."
+
+    if [ "$remove_directory" = true ]; then
+        echo "Removing migration directory..."
+        rm -rf "$latest_migration"
+        if [ $? -eq 0 ]; then
+            echo "Migration directory removed successfully."
+        else
+            echo "Error occurred while removing the migration directory."
+            exit 1
+        fi
+    fi
 else
     echo "Error occurred while running the down migration."
     exit 1

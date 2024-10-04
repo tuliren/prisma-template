@@ -10,7 +10,7 @@
     "db:deploy": "prisma migrate status; prisma migrate deploy",
     "db:generate": "prisma generate --no-hints",
     "db:push": "prisma db push --skip-generate",
-    "db:rollback": "bin/rollback-migration.sh",
+    "db:rollback": "bin/rollback-migration.sh -d",
     "db:status": "prisma migrate status",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,json}\"",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,json}\" --log-level=warn",
