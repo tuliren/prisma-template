@@ -53,4 +53,5 @@ else
 fi
 
 echo "Current migration status:"
-npx prisma migrate status
+# ignore exit code 1 when there is pending migration
+npx prisma migrate status || true
