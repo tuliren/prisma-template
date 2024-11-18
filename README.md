@@ -21,6 +21,8 @@ This template aims to provide a similar experience for Prisma as follows.
   - The normal `migration.sql` file is created under `<timestamp>-<migration-name>` directory.
   - A `down.sql` file for down migration is generated under the same directory.
 - Run `yarn db:deploy` to apply the migration.
+  - The `db:deploy` also runs `db:dump-schema` to create or update the SQL schema file at `prisma/schema_dump.sql`
+  - The schema dump should be checked into source control for reference.
 - Run `yarn db:rollback` to roll back the last migration.
   - The `down.sql` file is executed to revert the schema change in the database.
   - The record in `_prisma_migrations` table for the reverted migration is deleted.
