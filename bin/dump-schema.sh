@@ -28,6 +28,7 @@ fi
 echo "Cleaning up..."
 rm "$TEMP_SCHEMA"
 
-npx prettier --write prisma/schema_dump.sql
+# Optional: add prettier-plugin-sql and format the SQL dump
+# npx prettier --write prisma/schema_dump.sql
 
 echo "Done! SQL schema dump saved to $SQL_DUMP"
