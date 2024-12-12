@@ -10,7 +10,7 @@
     "db:deploy": "prisma migrate status; prisma migrate deploy && npm run db:dump-schema",
     "db:generate": "prisma generate --no-hints",
     "db:push": "prisma db push --skip-generate",
-    "db:rollback": "bin/rollback-migration.sh -d",
+    "db:rollback": "bin/rollback-migration.sh -d && npm run db:dump-schema",
     "db:dump-schema": "bin/dump-schema.sh",
     "db:status": "prisma migrate status",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,json}\"",
