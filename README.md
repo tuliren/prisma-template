@@ -23,6 +23,7 @@ This template aims to provide a similar experience for Prisma as follows:
 
 | Command | Description |
 | --- | --- |
+| `npm run db:check-drift` | Check the difference between the schema in the database vs in the Prisma schema file. |
 | `npm run db:create-migration` | Create a new migration, together with the rollback script. |
 | `npm run db:deploy` | Apply the migration, and update the schema dump. |
 | `npm run db:rollback` | Roll back the last migration, delete the migration file, and update the schema dump. |

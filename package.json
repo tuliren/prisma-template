@@ -6,6 +6,7 @@
     ".": "./src/index.ts"
   },
   "scripts": {
+    "db:check-drift": "prisma migrate diff --from-schema-datamodel prisma/schema.prisma --to-schema-datasource prisma/schema.prisma",
     "db:create-migration": "bin/create-migration.sh",
     "db:deploy": "prisma migrate status; prisma migrate deploy && npm run db:dump-schema",
     "db:generate": "prisma generate --no-hints",
