@@ -25,7 +25,8 @@ This template aims to provide a similar experience for Prisma as follows:
 | --- | --- |
 | `yarn db:check-drift` | Check the difference between the schema in the database vs in the Prisma schema file. |
 | `yarn db:create-migration` | Create a new migration, together with the rollback script. |
-| `yarn db:deploy` | Apply the migration, and update the schema dump. |
+| `yarn db:deploy` | Check the migration status, apply the migration with `db:migrate`, and update the schema dump. |
+| `yarn db:migrate` | Apply the migration only, without the status check or schema dump (e.g. in a CI or deploy build). |
 | `yarn db:rollback` | Roll back the last migration, delete the migration file, and update the schema dump. |
 | `yarn db:generate` | Generate and update Prisma client code. |
 
@@ -37,6 +38,8 @@ See [`package.json`](./package.json) for more details.
   - The normal `migration.sql` file is created under `<timestamp>-<migration-name>` directory.
   - A `down.sql` file for down migration is generated under the same directory.
 - Run `yarn db:deploy` to apply the migration.
+  - `db:deploy` runs `db:migrate` to apply the migration, with a status check before it and a schema dump after it.
+  - Use `db:migrate` alone where only the migration is needed, such as a deploy build.
   - The `db:deploy` also runs `db:dump-schema` to create or update the SQL schema file at `prisma/schema_dump.sql`
   - The schema dump is updated to reflect the current schema of the database, and should be checked into source control for reference.
 - Run `yarn db:rollback` to roll back the last migration.
