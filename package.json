@@ -8,8 +8,9 @@
   "scripts": {
     "db:check-drift": "prisma migrate diff --from-schema-datamodel prisma/schema.prisma --to-schema-datasource prisma/schema.prisma",
     "db:create-migration": "bin/create-migration.sh",
-    "db:deploy": "prisma migrate status; prisma migrate deploy && npm run db:dump-schema",
+    "db:deploy": "prisma migrate status; npm run db:migrate && npm run db:dump-schema",
     "db:generate": "prisma generate --no-hints",
+    "db:migrate": "prisma migrate deploy",
     "db:push": "prisma db push --skip-generate",
     "db:rollback": "bin/rollback-migration.sh -d && npm run db:dump-schema",
     "db:dump-schema": "bin/dump-schema.sh",
